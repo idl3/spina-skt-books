@@ -1,0 +1,30 @@
+= form_for [spina, :admin, @book], html: {autocomplete: "off"} do |f|
+  - content_for :notification_alert do
+    = error_explanation!(@book)
+
+  #page_content.tab-content.active
+    .table-container
+      %table.table.table-form
+        %tr
+          %td
+            = t('spina.name')
+          %td
+            = f.text_field :title, placeholder: t('spina.book.author_name')
+        %tr
+          %td
+            = t('spina.book.icon')
+          %td
+            = f.file_field :icon
+        %tr
+          %td
+            = t('spina.book.description')
+          %td
+            = f.text_area :description, placeholder: t('spina.book.describe')
+
+  %button.button.button-primary{type: 'submit', data: {icon: 'o'}}
+    = t('spina.book.save')
+
+  = link_to t('spina.book.cancel'), spina.admin_books_path, class: 'button button-link'
+
+  - unless @book.new_record?
+    .pull-right= link_to t('spina.destroy'), spina.admin_book_path(@book), method: :delete, confirm: "Are you sure you want to remove <strong>#{@book.name}</strong>?", class: 'button button-link button-danger'

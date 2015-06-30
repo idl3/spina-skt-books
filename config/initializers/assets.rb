@@ -1,0 +1,1 @@
+Rails.application.config.assets.precompile += ["spina/admin/#{Spina::Books.config.css_filename}.css"]

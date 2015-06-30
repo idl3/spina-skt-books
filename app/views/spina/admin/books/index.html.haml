@@ -1,0 +1,39 @@
+.filters
+  = link_to t("spina.book.new"), spina.new_admin_book_path, class: 'button button-primary', data: {icon: 't'}
+
+  .pull-right
+    %p
+      = "#{t('spina.book.filter_by')}"
+      = select_tag :filter_by, options_for_select([["All","All"], ["Books","Books"], ["Games","Games"]])
+.table-container
+  %table.table
+    %thead
+      %tr
+        %th
+        %th= t('spina.name')
+        %th= t('spina.book.name')
+        %th
+
+    %tbody
+      - if @books.any?
+        - @books.each do |book|
+          %tr
+            %td.icon
+              = image_tag book.icon.small_thumb, class: "radius"
+            %td.nowrap
+              = book.title
+              %small= time_ago_in_words(book.created_at) + t('spina.ago')
+            %td
+              %p= book.description
+            %td.nowrap
+              = link_to t('spina.edit'), spina.edit_admin_book_path(book), class: 'button button-link', data: {icon: 'q'}
+              %br
+              = link_to t('spina.destroy'), spina.admin_book_path(book), method: :delete, class: 'button button-link', data: {icon: 'q', confirm: t('spina.book.confirm_delete')}
+
+      - else
+        %tr
+          %td.align-center{colspan: 4}
+            %em= t('spina.book.no_books')
+
+- content_for :plugin_stylesheets do
+  = stylesheet_link_tag "spina/admin/books"

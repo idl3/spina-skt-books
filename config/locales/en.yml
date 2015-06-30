@@ -1,0 +1,19 @@
+en:
+  spina:
+    book:
+      name: "Book"
+      new: "New Book"
+      created: "Book was successfully created"
+      saved: "was saved"
+      destroyed: "was destroyed"
+      no_books: "You have not created any books yet."
+      author_name: "Author name"
+      average_rating: 'Average rating'
+      filter_by: 'Filter by'
+      describe: "Describe this book"
+      confirm_delete: "Are you sure you want to delete this book?"
+    name: "Name"
+    new: "New"
+    edit: "Edit"
+    destroy: "Remove"
+    ago: " ago"
