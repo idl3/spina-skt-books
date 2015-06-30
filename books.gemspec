@@ -5,7 +5,7 @@ require "spina/items/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "spina-items"
+  s.name        = "spina-skt-books"
   s.version     = Spina::Items::VERSION
   s.authors     = ["Ernest Sim"]
   s.email       = ["ernest.codes@gmail.com"]
